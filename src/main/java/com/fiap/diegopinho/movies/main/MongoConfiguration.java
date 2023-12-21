@@ -1,4 +1,4 @@
-package com.fiap.diegopinho.movies.configuration;
+package com.fiap.diegopinho.movies.main;
 
 import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.fiap.diegopinho.movies.controllers;
+package com.fiap.diegopinho.movies.infrastructure.controllers;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
