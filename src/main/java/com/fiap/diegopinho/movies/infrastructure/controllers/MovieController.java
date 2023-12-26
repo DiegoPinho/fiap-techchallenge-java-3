@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fiap.diegopinho.movies.application.usecases.CreateMovieInteractor;
 import com.fiap.diegopinho.movies.domain.Movie;
 
-import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
