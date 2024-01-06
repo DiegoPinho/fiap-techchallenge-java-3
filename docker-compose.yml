@@ -1,31 +1,27 @@
 services:
-  mongo:
-    image: mongo
-    ports:
-      - "27017:27017"
+  postgres:
+    image: postgres
+    container_name: my-postgres
+    environment:
+      POSTGRES_DB: movies
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
     volumes:
-      - mongo-data:/data/db
-    networks:
-      - app-network
+      - postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+      
   backend:
     image: backend
     container_name: backend
-    build: .
-    environment:
-      - SPRING_DATA_MONGODB_HOST=mongo
-      - SPRING_DATA_MONGODB_PORT=27017
-      - SPRING_DATA_MONGODB_DATABASE=movies
     ports:
-      - "8081:8081"
+      - "8080:8080"
     depends_on:
-      - mongo
-    networks:
-      - app-network
-
-networks:
-  app-network:
-    driver: bridge
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/movies
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
 
 volumes:
-  mongo-data:
-    driver: local
+  postgres-data:

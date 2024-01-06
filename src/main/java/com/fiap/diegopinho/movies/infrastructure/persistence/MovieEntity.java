@@ -2,12 +2,25 @@ package com.fiap.diegopinho.movies.infrastructure.persistence;
 
 import java.time.LocalDateTime;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+@Table("movies")
 public class MovieEntity {
+
+  @Id
   private Long id;
   private String title;
   private String description;
   private String link;
+  @JsonFormat(pattern = "dd-MM-yyyy")
   private LocalDateTime publication;
+
+  public MovieEntity() {
+
+  }
 
   public MovieEntity(String title, String description, String link, LocalDateTime publication) {
     this.title = title;

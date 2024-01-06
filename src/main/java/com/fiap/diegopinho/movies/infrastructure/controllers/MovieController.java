@@ -26,6 +26,7 @@ public class MovieController {
   public CreateMovieResponse createMovie(@RequestBody CreateMovieRequest request) {
     Movie movie = movieDTOMapper.toMovie(request);
     Movie user = createMovieInteractor.createMovie(movie);
+
     return movieDTOMapper.toResponse(user);
   }
 
